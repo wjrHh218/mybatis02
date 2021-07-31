@@ -1,0 +1,20 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.UsersDao">
+    <insert id="addUser" parameterType="pojo.Users" >
+        insert into users values (#{name},#{sex},#{age})
+    </insert>
+    <update id="updateUser" parameterType="pojo.Users">
+        update users set name=#{name},sex=#{sex} where age=#{age}
+    </update>
+    <delete id="deleteUser" parameterType="pojo.Users">
+        delete from users where name=#{name};
+    </delete>
+    <select id="findUsers" resultType="pojo.Users">
+        select * from users;
+    </select>
+    <select id="findUsersByName" parameterType="String" resultType="pojo.Users">
+        select * from users where name=#{name};
+    </select>
+</mapper>
